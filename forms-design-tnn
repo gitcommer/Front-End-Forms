@@ -1,0 +1,212 @@
+/* 1 - BASE FORM STYLES */
+body{
+	background: #141414;
+	margin: 0;
+	font-family: arial;
+}
+
+header{
+	background: #0d0d0d;
+	padding: 20px;
+	text-align: center;
+}
+
+form{
+	margin: 20px;
+	color: #eee;
+}
+
+form p{
+	font-size: 18px;
+	letter-spacing: 0.1em;
+}
+
+
+/* 2 - RADIO BOX STYLES  */
+input[type="radio"]{ 							/*target radio button*/
+	opacity: 0; 								/*opacity remove the color radio button*/
+	width: 0; 									/*remove the width radio button*/
+	margin: 0; 									/*remove the margin radio button*/
+}
+
+label[for="male"], label[for="female"]{ 		/*<label for="male">Male</label> and  <label for="female">Female</label>*/
+	margin-bottom: 10px;
+	display: inline-block;
+	padding-left: 26px;
+	background: url(img/checks.png) no-repeat;
+	background-position: 0 -32; 				/*this will hide the radio button image*/ 
+	line-height: 24px;
+	cursor: pointer;
+}
+
+input:checked + label[for="male"], 				/*when radio button is checked*/
+input:checked + label[for="female"]{
+	background-position: 0 0; 					/*this will display image in radio button when checked*/
+	color: #ce1010;
+}
+
+
+/* 3 - CHECKBOX STYLES  */
+input[type="checkbox"]{
+	opacity: 0; 								/*hide checkbox*/
+	width: 0;
+	margin: 0;
+}
+
+label[for="web"], label[for="photoshop"], label[for="madona"]{
+	display: inline-block;
+	margin-bottom: 10px;
+	padding-left: 26px;
+	background: url(img/checks.png) no-repeat;
+	background-position: 0 -98; 				/*this will adjust the position of the image*/
+	line-height: 24px; 
+	cursor: pointer;
+}
+
+input:checked + label[for="web"],
+input:checked + label[for="photoshop"],
+input:checked + label[for="madona"]{
+	background-position: 0 -65; 				/*this will adjust the position of the image*/
+	color: #ce1010;
+}
+
+
+/* 4 - TEXT INPUT STYLES & FIELDSETS */
+fieldset{
+	padding: 20px;
+	margin: 20px 0;
+	border: 3px solid #222;
+}
+
+legend{
+	padding: 10px;
+	font-size: 18px;
+	letter-spacing: 0.1em;
+}
+
+input[type="email"], 							/*target input field*/
+input[type="telephone"]{
+	display: block;
+	margin-bottom: 20px;
+	padding: 10px 10px 10px 50px;
+	border: 0;
+	border-radius: 4px;
+	background: url(img/inputs.png) no-repeat;
+	background-color: #222;
+	font-size: 16px;
+	color: #fff;
+	float: left;
+	clear: both;
+}
+
+input[type="email"]{
+	background-position: 7px 8px; 				/*this will adjust the position of the image*/
+}
+
+input[type="telephone"]{
+	background-position: 7px -58px; 			/*this will adjust the position of the image*/
+}
+
+
+/* 5 - SELECT BOXES */
+select{
+	-webkit-appearance: none; 			
+	-moz-appearance: none;
+	-o-appearance: none;
+	-ms-appearance: none;
+	appearance: none; 							/*remove arrow in dropdown chrome, mozilla, opera, ie*/
+
+	display: block;
+	margin: 30px 0;
+	padding: 10px 50px 10px 10px;
+	background: url(img/select.png) no-repeat 95% center;
+	background-color: #222;
+	color: #fff;
+	border-radius: 4px;
+	border: 2px solid #fff;
+	width: 280px;
+}
+
+input[type="submit"]{
+	background: #b61111;
+	padding: 15px;
+	color: #fff;
+	font-size: 20px;
+	letter-spacing: 0.1em;
+	border-radius: 4px;
+	border: 0;
+	box-shadow: 1px 3px 5px rgba(0,0,0,0.5);
+	width: 280px;
+}
+
+
+/* 6 - INPUT VALIDATION STYLES */
+input[type="email"]:valid, 				/*target required in html*/
+input[type="telephone"]:valid{
+	border: 2px solid #fff;
+}
+
+input[type="email"]:valid{
+	background-position: 7px -22px; 	/*if valid display the image*/
+}
+
+input[type="telephone"]:valid{
+	background-position: 7px -97px;
+}
+
+input[type="email"]:valid + .tick,
+input[type="telephone"]:valid + .tick{
+	background: url(img/tick.png) center;
+	background-size: 100%;
+	display: block;
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin: 10px;
+}
+
+-----------------------------------------------------------------------------
+
+<html>
+  <head>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <img src="img/logo.png" />
+    </header>
+    <form>
+      <!-- Gender -->
+      <p>You are a...</p>
+      <input type="radio" id="male" name="gender" />
+      <label for="male">Male</label><br/>
+      <input type="radio" id="female" name="gender" />
+      <label for="female">Female</label>
+
+      <!-- Interests -->
+      <p>Who is interested in...</p>
+      <input type="checkbox" id="web" />
+      <label for="web">Web development</label><br/>
+      <input type="checkbox" id="photoshop" />
+      <label for="photoshop">Photoshop</label><br/>
+      <input type="checkbox" id="madona" />
+      <label for="madona">Singing Madona Songs</label>
+
+      <!-- Contact details -->
+      <fieldset>
+        <legend>Contact Info</legend>
+        <input type="email" placeholder="Email" required />
+        <span class="tick"></span>
+        <input type="telephone" placeholder="Phone number" required />
+        <span class="tick"></span>
+      </fieldset>
+      <!-- Preferred -->
+      <p>How would you like to be contacted?</p>
+      <select>
+        <option>By email</option>
+        <option>By telephone</option>
+      </select>
+      <input type="submit" value="Become a Ninja" />
+    </form>
+  </body>
+</html>
